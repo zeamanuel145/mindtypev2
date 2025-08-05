@@ -2,24 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const connectDB = require('./config/db')
+const connectDB = require('./config/db');
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 3500;
 
-//db connection
+// ✅ Connect to MongoDB
 connectDB();
 
+// ✅ CORS Configuration
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://mindtype.netlify.app'
+];
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'https://mindtype.netlify.app'
-    ];
-
+  origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -27,26 +26,25 @@ const corsOptions = {
     }
   },
   credentials: true,
-  optionsSuccessStatus: 200 // For legacy browsers
+  optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.options('*', cors(corsOptions)); // ✅ Preflight support
 
-//  Middleware
+// ✅ Middleware
 app.use(express.json());
 
-//  Routes
+// ✅ API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/posts', require('./routes/postRoutes'));
 
-
+// ✅ Root route
 app.get('/', (req, res) => {
   res.send('API is running ✅');
 });
 
-
-// Start server
+// ✅ Start server
 mongoose.connection.once('open', () => {
-    app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
