@@ -13,6 +13,7 @@ export default function PostPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
+      
         const res = await fetch(`https://mindtypev2-2.onrender.com/api/posts/${id}`);
         if (!res.ok) throw new Error('Failed to fetch post');
         const data = await res.json();

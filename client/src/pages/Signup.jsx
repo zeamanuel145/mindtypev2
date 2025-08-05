@@ -56,7 +56,6 @@ const Signup = () => {
       if (!res.ok) {
         throw new Error(data.message || 'Signup failed');
       }
-
       if (data.token) {
         login(data.token);           
         navigate('/dashboard');       
