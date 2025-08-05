@@ -13,16 +13,25 @@ const PORT = process.env.PORT || 3500;
 connectDB();
 
 
-const allowedOrigins = [
-  'http://localhost:5173',              // Local dev
-  'https://mindtype.netlify.app'        // Netlify site URL
-];
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'https://mindtype.netlify.app'
+    ];
 
-// Enable CORS for frontend
-app.use(cors({
-  origin: allowedOrigins,
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
-}));
+  optionsSuccessStatus: 200 // For legacy browsers
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 //  Middleware
 app.use(express.json());
