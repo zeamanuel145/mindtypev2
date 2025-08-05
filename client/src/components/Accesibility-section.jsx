@@ -1,18 +1,11 @@
 
-import AccessImage from "../assets/postcard2.jpg";
+
 
 export default function Accessibility() {
   
   return (
     <section className="w-screen grid grid-cols-1 md:grid-cols-2  overflow-hidden bg-white dark:bg-gray-900 py-8">
-  
-  <div className="flex items-center justify-center">
-    <img
-      src={AccessImage}
-      alt="Accessibility Design"
-      className="w-full h-96 object-cover rounded-md shadow-lg"
-    />
-  </div>
+
 
   {/* Main Content */}
   <div className="gap-8 px-6 md:px-20 mt-10">
