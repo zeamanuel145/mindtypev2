@@ -1,18 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaHeart, FaTelegramPlane } from 'react-icons/fa';
-import  postcard2 from '../assets/postcard2.jpg';
+
 const PostCard = ({ post }) => {
   return (
     <div className="bg-white dark:bg-gray-600 shadow-md rounded flex flex-col h-auto">
-      <img
-        src={
-            post.image
-                ? new URL(`../assets/${post.image}`, import.meta.url).href
-                : {postcard2}
-        }
-        alt={post.title}
-        className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-t"
-        />
+    
       <div className="p-4 flex flex-col flex-grow">
         <h4 className="text-xs text-blue-500 truncate">{post.title}</h4>
         <h2 className="text-gray-900 dark:text-gray-100 mt-2 text-2xl line-clamp-2">{post.summary}</h2>
