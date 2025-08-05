@@ -11,7 +11,7 @@ const ResetPassword = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://mindtypev2-1.onrender.com/api/auth/reset-password', {
+      const res = await fetch('https://mindtypev2-2.onrender.com/api/auth/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

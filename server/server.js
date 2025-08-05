@@ -15,8 +15,7 @@ connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173',              // Local dev
-  'https://mindtype.netlify.app',
-  'https://chic-cascaron-47d846.netlify.app/' // Netlify site URL
+  'https://chic-cascaron-47d846.netlify.app/', // Netlify site URL
 ];
 
 // Enable CORS for frontend
