@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors');          // keep this one only
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
@@ -10,8 +10,6 @@ const PORT = process.env.PORT || 3500;
 
 // ✅ Connect to MongoDB
 connectDB();
-
-const cors = require('cors');
 
 const allowedOrigins = [
   'http://localhost:5173',
@@ -32,10 +30,9 @@ const corsOptionsDelegate = function (req, callback) {
   callback(null, corsOptions);
 };
 
-// ✅ Apply to ALL requests (including preflight)
+// ✅ Apply CORS to all requests (including preflight)
 app.use(cors(corsOptionsDelegate));
 app.options('*', cors(corsOptionsDelegate));
-
 
 // ✅ Middleware
 app.use(express.json());
@@ -49,7 +46,7 @@ app.get('/', (req, res) => {
   res.send('API is running ✅');
 });
 
-// ✅ Start server
+// ✅ Start server when DB connection opens
 mongoose.connection.once('open', () => {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
