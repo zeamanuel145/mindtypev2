@@ -14,7 +14,7 @@ export default function Hero() {
     <p className="text-lg md:text-xl text-center md:text-left text-gray-700 dark:text-gray-300">
       A blogging platform where every story finds its space. <br />
       Designed with accessibility at its core, so your voice <br />
-      reaches everyone, everywhere.
+      reaches everyone, everywhere. 
     </p>
     <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
       <Link
