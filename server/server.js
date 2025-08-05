@@ -11,26 +11,31 @@ const PORT = process.env.PORT || 3500;
 // ✅ Connect to MongoDB
 connectDB();
 
-// ✅ CORS Configuration
+const cors = require('cors');
+
 const allowedOrigins = [
   'http://localhost:5173',
   'https://mindtype.netlify.app'
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  optionsSuccessStatus: 200
+const corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (allowedOrigins.includes(req.header('Origin'))) {
+    corsOptions = {
+      origin: true,
+      credentials: true,
+      optionsSuccessStatus: 200
+    };
+  } else {
+    corsOptions = { origin: false };
+  }
+  callback(null, corsOptions);
 };
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // ✅ Preflight support
+// ✅ Apply to ALL requests (including preflight)
+app.use(cors(corsOptionsDelegate));
+app.options('*', cors(corsOptionsDelegate));
+
 
 // ✅ Middleware
 app.use(express.json());
