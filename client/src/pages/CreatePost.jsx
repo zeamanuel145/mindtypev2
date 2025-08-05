@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -10,7 +10,7 @@ const CreatePost = () => {
 
     const token = localStorage.getItem('token');
 
-    const res = await fetch('http://localhost:3500/api/posts', {
+    const res = await fetch('https://mindtypev2-1.onrender.com/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
