@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://mindtypev2-2.onrender.com',
+      '/api': 'http://localhost:3500',
     },
   },
 })
