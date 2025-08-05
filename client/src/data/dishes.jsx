@@ -1,0 +1,58 @@
+const dishes = [
+  {
+    id: 1,
+    name: "Spring Rolls",
+    category: "Veg",
+    type: "starters",
+    price: "$6",
+    description: "Crispy vegetarian rolls",
+    image: "https://via.placeholder.com/300x200?text=Spring+Rolls",
+  },
+  {
+    id: 2,
+    name: "Grilled Chicken",
+    category: "Non-Veg",
+    type: "mains",
+    price: "$15",
+    description: "Served with herbs and garlic sauce",
+    image: "https://via.placeholder.com/300x200?text=Grilled+Chicken",
+  },
+  {
+    id: 3,
+    name: "Chocolate Cake",
+    category: "Chef Specials",
+    type: "desserts",
+    price: "$8",
+    description: "Moist and rich chocolate dessert",
+    image: "https://via.placeholder.com/300x200?text=Chocolate+Cake",
+  },
+  {
+    id: 3,
+    name: "Vanilla Cake",
+    category: "Chef Specials",
+    type: "desserts",
+    price: "$8",
+    description: "Moist and rich chocolate dessert",
+    image: "https://via.placeholder.com/300x200?text=Chocolate+Cake",
+  },
+  {
+    id: 3,
+    name: "Strawberry Cake",
+    category: "Chef Specials",
+    type: "desserts",
+    price: "$8",
+    description: "Moist and rich chocolate dessert",
+    image: "https://via.placeholder.com/300x200?text=Chocolate+Cake",
+  },
+  {
+    id: 3,
+    name: "Mint Cake",
+    category: "Chef Specials",
+    type: "desserts",
+    price: "$8",
+    description: "Moist and rich chocolate dessert",
+    image: "https://via.placeholder.com/300x200?text=Chocolate+Cake",
+  },
+];
+
+export default dishes;
